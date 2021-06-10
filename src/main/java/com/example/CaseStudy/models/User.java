@@ -9,10 +9,9 @@ import lombok.experimental.FieldDefaults;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class Project {
-    int id;
-    String name;
-    Yarn yarn;
-    String description;
+@FieldDefaults (level = AccessLevel.PRIVATE)
+public class User {
+    int uId;
+    String username;
+    String password;
 }
