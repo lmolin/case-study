@@ -23,10 +23,4 @@ public class HomeController {
     //go to archived projects
     @GetMapping("/projects/archived")
     public String archivedProjects() {return "archived";}
-
-    //go to stash
-    @GetMapping("/stash/yarn")
-    public String yarnStash() {
-        return "stash";
-    }
 }
