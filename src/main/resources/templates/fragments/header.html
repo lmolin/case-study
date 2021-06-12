@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <link rel="stylesheet" href="/src/main/resources/static/styles/style.css" />
+    <link rel="stylesheet" href="static/style.css" />
   </head>
   <body>
-    <header class="page-header"><h1>Website name</h1></header>
+  <div th:fragment="header">
+  <header class="page-header"><h1>Website name</h1></header>
+  </div>
   </body>
 </html>

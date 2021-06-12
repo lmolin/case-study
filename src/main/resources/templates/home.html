@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width= device-width, initial-scale= 1.0" />
+    <div th:replace="fragments/head :: head"></div>
   </head>
   <body>
-    <h1>Home page</h1>
+<!-- header and sidebar -->
+  <div th:replace="fragments/header :: header"></div>
+  <div th:replace="fragments/sidebar :: sidebar"></div>
+
+<!-- page content -->
+<main class="page-body">
+  <div class="row m-0">
+    <div class="col-md-12">
+      <section>Resume latest project</section>
+    </div>
+    <div class="col-md-6">
+      <section>A chart will go here</section>
+    </div>
+    <div class="col-md-6">
+      <section>Uhh something else here idk</section>
+    </div>
+  </div>
+</main>
   </body>
 </html>

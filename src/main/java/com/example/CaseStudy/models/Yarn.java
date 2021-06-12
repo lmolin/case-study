@@ -11,9 +11,8 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults (level = AccessLevel.PRIVATE)
 public class Yarn {
-    int id;
+    Integer id;
     String name;
     String color;
-    int weight;
-    int userId;
+    Integer weight;
 }
