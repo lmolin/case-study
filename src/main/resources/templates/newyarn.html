@@ -10,20 +10,20 @@
 
 <div class="row m-0" style="justify-content: center">
     <div class="col-md-6">
-        <form>
+        <form th:action="@{/stash/createyarn}" method="post" th:object="${yarn}">
             <div class="form-group">
                 <label for="name">name</label>
-                <input type="text" id="name" class="form-control" />
+                <input type="text" id="name" class="form-control" th:field="*{yName}"/>
             </div>
 
             <div class="form-group">
                 <label for="color">color</label>
-                <input type="text" id="color" class="form-control" />
+                <input type="text" id="color" class="form-control" th:field="*{yColor}" />
             </div>
 
             <div class="form-group">
                 <label for="weight">weight</label>
-                <input type="number" id="weight" class="form-control" />
+                <input type="number" id="weight" class="form-control" th:field="*{yWeight}" />
             </div>
 
             <input type="submit" value="submit" />

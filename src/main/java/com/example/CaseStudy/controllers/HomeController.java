@@ -12,15 +12,4 @@ public class HomeController {
         return "home";
     }
 
-    //go to new project
-    @GetMapping("/projects/new")
-    public String newProject() {return "newproject";}
-
-    //go to all projects
-    @GetMapping("/projects")
-    public String projects() {return "projects";}
-
-    //go to archived projects
-    @GetMapping("/projects/archived")
-    public String archivedProjects() {return "archived";}
 }
