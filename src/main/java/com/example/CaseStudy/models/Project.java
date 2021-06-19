@@ -5,15 +5,29 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.stereotype.Component;
 
-import java.sql.Date;
+import javax.persistence.*;
 
+@Entity
+@Table(name="project")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@Component
 public class Project {
-    String name;
-    Yarn yarn;
-    Date startDate;
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    Long pId;
+
+    @Column(name="name")
+    String pName;
+
+    @Column(name="yarn")
+    String pYarn;
+
+    @Column(name="description")
+    String pDesc;
 }

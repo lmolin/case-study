@@ -34,7 +34,7 @@ h1 {
   display: block;
   width: 100%;
   border: none;
-  border-top: solid 1px black;
+  border-bottom: solid 1px black;
   background-color: white;
 }
 
@@ -42,9 +42,14 @@ h1 {
   background-color: lightgray;
 }
 
-.nav-list {
+.sub-list {
   padding-right: 1em;
   border-top: solid 1px black;
+}
+
+.link-unstyled, .link-unstyled:link, .link-unstyled:hover {
+  color: inherit;
+  text-decoration: inherit;
 }
 
 /* body stuff */

@@ -9,23 +9,20 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.*;
 
 @Entity
-@Table(name="yarn")
+@Table(name="user")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults (level = AccessLevel.PRIVATE)
-public class Yarn {
+public class User {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    Integer yId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer uId;
 
-    @Column(name= "name")
-    String yName;
+    @Column(name="username")
+    String username;
 
-    @Column(name="color")
-    String yColor;
-
-    @Column(name="weight")
-    Integer yWeight;
+    @Column(name="password")
+    String password;
 }
