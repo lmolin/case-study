@@ -3,11 +3,17 @@ body {
   margin: 0px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
-.page-header {
+
+.header-container {
   width: 100%;
+}
+
+.page-header {
   height: 50px;
-  border: solid 1px black;
+  color: sienna;
+  background-color: seashell;
   position: sticky;
+  padding-left: 0.5em;
 }
 
 h1 {
@@ -29,7 +35,7 @@ h1 {
   background-color: white;
   box-shadow: 0px 0px 5px tan;
   clip-path: inset(0px -5px 0px 0px);
-  color: darkslategray;
+  color: sienna;
   background-color: seashell;
 }
 
@@ -39,12 +45,12 @@ h1 {
 }
 
 .sidenav-button {
-  font-size: larger;
+  font-size: x-large;
   display: block;
   width: 100%;
   border: none;
   border-bottom: solid 1px tan;
-  padding-left: 1em;
+  padding-left: 0.5em;
 }
 
 .sidenav-button:hover {
@@ -52,6 +58,7 @@ h1 {
 }
 
 .sub-list {
+  font-size: large;
   padding-right: 1em;
   border-bottom: solid 1px tan;
 }
