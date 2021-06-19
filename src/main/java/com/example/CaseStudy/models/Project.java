@@ -30,4 +30,7 @@ public class Project {
 
     @Column(name="description")
     String pDesc;
+
+    @Column(name="userId")
+    Long uId;
 }
