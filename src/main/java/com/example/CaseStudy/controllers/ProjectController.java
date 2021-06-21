@@ -1,7 +1,9 @@
 package com.example.CaseStudy.controllers;
 
 import com.example.CaseStudy.models.Project;
+import com.example.CaseStudy.models.Yarn;
 import com.example.CaseStudy.services.ProjectService;
+import com.example.CaseStudy.services.YarnService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,9 @@ public class ProjectController {
     @Autowired
     ProjectService ps;
 
+    @Autowired
+    YarnService ys;
+
     @ModelAttribute("project")
     public Project initProject(){
         return new Project();
@@ -32,6 +37,10 @@ public class ProjectController {
 
     @PostMapping("/projects/save")
     public String saveProject(@ModelAttribute("project") Project project, BindingResult result, Model model) {
+
+        List<Yarn> yarnList = ys.getAllYarn();
+        model.addAttribute("yarnList", yarnList);
+
         if (result.hasErrors()) {
             log.warning("Invalid input");
             return "newproject";
