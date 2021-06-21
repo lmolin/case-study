@@ -8,11 +8,12 @@
     <div th:replace="fragments/header :: header"></div>
     <div th:replace="fragments/sidebar :: sidebar"></div>
 
+    <main class="page-body">
     <div class="row m-0" style="justify-content: center">
       <div class="col-md-6">
         <section>
           <form
-            th:action="@{/project/save}"
+            th:action="@{/projects/save}"
             method="post"
             th:object="${project}"
           >
@@ -40,6 +41,7 @@
         </section>
       </div>
     </div>
+    </main>
     <div th:replace="fragments/scripts :: scripts"></div>
   </body>
 </html>

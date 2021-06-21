@@ -19,9 +19,9 @@ public class ProjectService {
         return repo.findAll();
     }
 
-    public List<Project> getProjectsByUserId(Long uId) {
-        return repo.findByuId(uId);
-    }
+//    public List<Project> getProjectsByUserId(Long uId) {
+//        return repo.findByuId(uId);
+//    }
 
     public void saveProject(Project p) {
         repo.save(p);
