@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <div th:replace="fragments/head :: head"></div>
-</head>
-<body>
-<!-- header and sidebar -->
-<div th:replace="fragments/header :: header"></div>
-<div th:replace="fragments/sidebar :: sidebar"></div>
+  <head>
+    <div th:replace="fragments/head :: head"></div>
+  </head>
+  <body>
+    <!-- header and sidebar -->
+    <div th:replace="fragments/header :: header"></div>
+    <div th:replace="fragments/sidebar :: sidebar"></div>
 
-<div class="row m-0" style="justify-content: center">
+    <div class="row m-0" style="justify-content: center">
       <div class="col-md-6">
-        <form>
-          <div class="form-group">
-            <label for="name">Project name</label>
-            <input type="text" id="name" class="form-control" />
-          </div>
+        <section>
+          <form
+            th:action="@{/project/save}"
+            method="post"
+            th:object="${project}"
+          >
+            <div class="form-group">
+              <label for="name">Project name</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                th:field="*{pName}"
+              />
+            </div>
 
-          <div class="form-group">
-            <label for="yarn">yarn name</label>
-            <input type="text" id="yarn" class="form-control" />
-          </div>
-          <input type="submit" value="submit" />
-        </form>
+            <div class="form-group">
+              <label for="yarn">yarn name</label>
+              <input
+                type="text"
+                id="yarn"
+                class="form-control"
+                th:field="*{pYarn}"
+              />
+            </div>
+            <input type="submit" value="submit" />
+          </form>
+        </section>
       </div>
     </div>
+    <div th:replace="fragments/scripts :: scripts"></div>
   </body>
 </html>
