@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <div th:replace="fragments/head :: head"></div>
-</head>
-<body>
-<!-- header and sidebar -->
-<div th:replace="fragments/header :: header"></div>
-<div th:replace="fragments/sidebar :: sidebar"></div>
+  </head>
+  <body>
+    <!-- header and sidebar -->
+    <div th:replace="fragments/header :: header"></div>
+    <div th:replace="fragments/sidebar :: sidebar"></div>
 
-<!-- page content -->
-<main class="page-body">
-    <div class="row">
+    <!-- page content -->
+    <main class="page-body">
+      <div class="row">
         <div class="col-md-12">
-            <section>
-                <h1>Archived Projects page</h1>
-            </section>
+          <section>
+            <h1>Archived Projects page</h1>
+          </section>
         </div>
-    </div>
-</main>
-</body>
+      </div>
+    </main>
+    <div th:replace="fragments/scripts :: scripts"></div>
+  </body>
 </html>

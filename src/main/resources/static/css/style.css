@@ -2,9 +2,10 @@
 body {
   margin: 0px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: sienna;
 }
 
-.header-container {
+#header-container {
   width: 100%;
 }
 
@@ -16,6 +17,18 @@ body {
   padding-left: 0.5em;
 }
 
+.collapse-button,
+.collapse-button:visited,
+.collapse-button:active .collapse-button:focus {
+  width: 1em;
+  height: 1em;
+  position: relative;
+  display: inline-flex;
+  color: inherit;
+  border: none;
+  background: none;
+}
+
 h1 {
   margin: 0px;
 }
@@ -25,7 +38,7 @@ h1 {
 }
 
 /* sidebar */
-.sidenav-container {
+#sidenav-container {
   position: fixed;
   height: 100%;
   top: 50px;
@@ -37,6 +50,7 @@ h1 {
   clip-path: inset(0px -5px 0px 0px);
   color: sienna;
   background-color: seashell;
+  transition: width 0.5s ease-in-out;
 }
 
 .nav-list {
@@ -70,6 +84,15 @@ h1 {
   text-decoration: inherit;
 }
 
+/* login page */
+
+.login-container {
+  background-color: seashell;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
 /* body stuff */
 .page-body {
   margin-left: 200px;
@@ -77,7 +100,10 @@ h1 {
 }
 
 section {
-  border: solid 1px black;
+  background-color: seashell;
+  border-radius: 10px;
+  padding: 10px;
+  filter: drop-shadow(0px 0px 2px sienna);
 }
 
 [class^="col-"] {
