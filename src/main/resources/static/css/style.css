@@ -3,6 +3,9 @@ body {
   margin: 0px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: sienna;
+  background-image: url("static/images/soft-3524894_1920.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #header-container {
@@ -97,6 +100,7 @@ h1 {
 .page-body {
   margin-left: 200px;
   padding: 30px;
+  transition: width 0.5s ease-in-out;
 }
 
 section {
