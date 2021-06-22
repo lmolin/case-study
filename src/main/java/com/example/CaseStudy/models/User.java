@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name="user")
@@ -20,9 +21,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer uId;
 
-    @Column(name="username")
+    @Column(name="username", length=16)
+    @NotNull
     String username;
 
     @Column(name="password")
+    @NotNull
+    @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$", message = "Password must have at least 8 characters,\n1 uppercase letter, 1 lowercase letter, and 1 number")
     String password;
 }
