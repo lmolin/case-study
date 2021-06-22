@@ -1,5 +1,6 @@
 package com.example.CaseStudy.models;
 
+import com.sun.istack.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,8 +22,10 @@ public class User {
     Integer uId;
 
     @Column(name="username")
+    @NotNull
     String username;
 
     @Column(name="password")
+    @NotNull
     String password;
 }
