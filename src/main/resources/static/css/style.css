@@ -97,6 +97,7 @@ h1 {
 .page-body {
   margin-left: 200px;
   padding: 30px;
+  transition: width 0.5s ease-in-out;
 }
 
 section {
