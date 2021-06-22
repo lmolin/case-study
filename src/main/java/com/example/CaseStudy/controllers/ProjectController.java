@@ -2,6 +2,7 @@ package com.example.CaseStudy.controllers;
 
 import com.example.CaseStudy.models.Project;
 import com.example.CaseStudy.services.ProjectService;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestAttribute;
 
+import java.util.List;
+
+@Log
 @Controller
 public class ProjectController {
 
@@ -28,15 +32,20 @@ public class ProjectController {
 
     @PostMapping("/projects/save")
     public String saveProject(@ModelAttribute("project") Project project, BindingResult result, Model model) {
-        if (result.hasErrors()){
-            return "error";
+        if (result.hasErrors()) {
+            log.warning("Invalid input");
+            return "newproject";
         }
+
         model.addAttribute("project", project);
         ps.saveProject(project);
-        return "archived";
+        return "redirect:../projects";
     }
 
     //go to all projects
     @GetMapping("/projects")
-    public String projects() {return "projects";}
+    public String projects(Model model) {
+        List<Project> projects = ps.getAllProjects();
+        model.addAttribute("projects", projects);
+        return "projects";}
 }

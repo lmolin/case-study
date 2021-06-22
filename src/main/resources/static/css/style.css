@@ -103,7 +103,7 @@ section {
   background-color: seashell;
   border-radius: 10px;
   padding: 10px;
-  filter: drop-shadow(0px 0px 2px sienna);
+  filter: drop-shadow(0px 0px 2px tan);
 }
 
 [class^="col-"] {

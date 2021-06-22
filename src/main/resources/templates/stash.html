@@ -15,6 +15,22 @@
           <section>
             <h1>Stash Page</h1>
             <a class="link-unstyled" th:href="@{/stash/newyarn}">Add new</a>
+            <table class="table">
+              <thead>
+              <tr>
+                <th> Name </th>
+                <th> Color </th>
+                <th> Weight </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="yarn : ${yarnList}">
+                <td><span th:text="${yarn.yName}"> Name </span></td>
+                <td><span th:text="${yarn.yColor}"> Color </span></td>
+                <td><span th:text="${yarn.yWeight}"> Weight </span></td>
+              </tr>
+              </tbody>
+            </table>
           </section>
         </div>
       </div>
