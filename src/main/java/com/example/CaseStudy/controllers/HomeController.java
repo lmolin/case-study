@@ -62,7 +62,7 @@ public class HomeController {
         model.addAttribute("user", user);
         us.saveUser(user);
 
-        return "redirect:../projects";
+        return "redirect: /login";
     }
 
 }
