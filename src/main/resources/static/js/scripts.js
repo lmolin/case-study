@@ -20,3 +20,8 @@ function toggleSidebar() {
 
    collapsed = !collapsed;
 };
+
+function removeParent(event) {
+    var x = event.target;
+    x.parentElement.remove();
+}
