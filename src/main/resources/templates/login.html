@@ -1,28 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width= device-width, initial-scale= 1.0" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/src/main/resources/static/css/style.css" />
+    <div th:replace="fragments/head :: head"></div>
   </head>
   <body>
     <div class="row m-0" style="justify-content: center">
       <div class="col-md-6">
         <div class="login-container">
-          <form>
+          <form th:action="@{/login/authenticate}" method="post" >
             <div class="form-group sans-serif">
               <label for="username">Enter username:</label>
-              <input type="text" id="username" class="form-control" />
+              <input type="text" id="username" class="form-control" name="username" />
             </div>
             <div class="form-group sans-serif">
               <label for="password">Enter password:</label>
-              <input type="password" id="password" class="form-control" />
+              <input type="password" id="password" class="form-control" name="password"/>
             </div>
             <input
               type="submit"
@@ -33,5 +25,6 @@
         </div>
       </div>
     </div>
+    <div th:replace="fragments/scripts :: scripts"></div>
   </body>
 </html>

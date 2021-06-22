@@ -51,12 +51,12 @@ public class HomeController {
         return "signup";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/signup")
     public String registerUser(@ModelAttribute("user") User user, BindingResult result, Model model) {
 
         if (result.hasErrors()) {
             log.warning("Invalid input");
-            return "register";
+            return "signup";
         }
 
         model.addAttribute("user", user);
