@@ -4,6 +4,7 @@ import com.example.CaseStudy.models.Project;
 import com.example.CaseStudy.models.User;
 import com.example.CaseStudy.security.AppUserDetailsService;
 import com.example.CaseStudy.services.ProjectService;
+import com.example.CaseStudy.services.UserService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,12 @@ public class HomeController {
     ProjectService ps;
 
     @Autowired
-    AppUserDetailsService us;
+    UserService us;
+
+    @ModelAttribute("user")
+    public User initUser(){
+        return new User();
+    }
 
     //go to homepage
     @GetMapping("/home")
@@ -54,6 +60,8 @@ public class HomeController {
         }
 
         model.addAttribute("user", user);
+        us.saveUser(user);
+
         return "redirect:../projects";
     }
 

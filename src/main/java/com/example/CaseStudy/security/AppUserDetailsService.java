@@ -27,8 +27,6 @@ public class AppUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("User not found");
         }
 
-        log.severe("user by email : "+ user);
-
         return new AppUserDetails(user.get());
     }
 }
