@@ -8,3 +8,9 @@ As an avid knitter, I frequently acquire new materials and pick up and drop proj
 
 - Framework: Spring Boot
 - Database: MariaDB
+
+## ER Diagram
+
+![ER Diagram](https://github.com/lmolin/case-study/blob/main/src/main/resources/static/img/er%20diagram.png?raw=true)
+
+
