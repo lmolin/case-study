@@ -13,4 +13,8 @@ As an avid knitter, I frequently acquire new materials and pick up and drop proj
 
 ![ER Diagram](https://github.com/lmolin/case-study/blob/main/src/main/resources/static/img/er%20diagram.png?raw=true)
 
+## Task Board
+
+![Trello Board](https://github.com/lmolin/case-study/blob/main/src/main/resources/static/img/trello%20board.png?raw=true)
+
 
