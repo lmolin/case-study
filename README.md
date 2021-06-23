@@ -6,5 +6,5 @@ As an avid knitter, I frequently acquire new materials and pick up and drop proj
 
 ## Technologies Used
 
--Framework: Spring Boot
--Database: MariaDB
+- Framework: Spring Boot
+- Database: MariaDB
