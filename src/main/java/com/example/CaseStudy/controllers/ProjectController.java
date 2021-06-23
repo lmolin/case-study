@@ -30,21 +30,27 @@ public class ProjectController {
 
     //go to new project
     @GetMapping("/projects/new")
-    public String newProject() {return "newproject";}
-
-    @PostMapping("/projects/save")
-    public String saveProject(@ModelAttribute("project") Project project, BindingResult result, Model model) {
+    public String newProject(Model model) {
 
         List<Yarn> yarnList = ys.getAllYarn();
         model.addAttribute("yarnList", yarnList);
 
-        if (result.hasErrors()) {
-            log.warning("Invalid input");
-            return "newproject";
-        }
+        return "newproject";
+    }
 
-        model.addAttribute("project", project);
-        ps.saveProject(project);
+    @PostMapping("/projects/save")
+    public String saveProject(@RequestParam("pName") String name,
+                              @RequestParam("pYarn") List<Yarn> yarn,
+                              @RequestParam("pDesc") String pDesc,
+                              Model model) {
+
+        Project p = new Project();
+        p.setPName(name);
+        p.setPYarn(yarn);
+        p.setPDesc(pDesc);
+
+        ps.saveProject(p);
+
         return "redirect:../projects";
     }
 
@@ -84,17 +90,29 @@ public class ProjectController {
     @GetMapping("projects/{id}/edit")
     public String editPage(@PathVariable("id") Long id, Model model) {
 
-        Project p = ps.getProjectByPId(id);
+        List<Yarn> yarnList = ys.getAllYarn();
+        model.addAttribute("yarnList", yarnList);
 
+        Project p = ps.getProjectByPId(id);
         model.addAttribute("project", p);
 
         return "editProject";
     }
 
     @PostMapping("projects/update")
-    public String editProject(@ModelAttribute("project") Project project, BindingResult result, Model model) {
+    public String editProject(@RequestParam("pName") String name,
+                              @RequestParam("pYarn") List<Yarn> yarn,
+                              @RequestParam("pDesc") String pDesc,
+                              @RequestParam("pId") Long pId,
+                              Model model) {
 
-        ps.saveProject(project);
+        Project p = ps.getProjectByPId(pId);
+
+        p.setPName(name);
+        p.setPYarn(yarn);
+        p.setPDesc(pDesc);
+
+        ps.saveProject(p);
 
         return "redirect:../projects";
     }

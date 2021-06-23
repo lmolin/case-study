@@ -75,20 +75,4 @@ public class HomeController {
         return "settings";
     }
 
-    @GetMapping("/signup")
-    public String signup() {
-        return "signup";
-    }
-
-    @PostMapping("/signup/new")
-    public String newUser(@ModelAttribute("user") @Validated User user, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            log.warning("invalid credentials");
-            return "signup";
-        }
-
-        us.saveUser(user);
-        return "home";
-    }
-
 }
