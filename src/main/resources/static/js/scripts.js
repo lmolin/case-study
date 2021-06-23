@@ -30,4 +30,4 @@ function toggleSidebar() {
       		document.getElementById('message').style.color = 'red';
           document.getElementById('message').innerHTML = 'Passwords do not match';
       }
-  }
+ }

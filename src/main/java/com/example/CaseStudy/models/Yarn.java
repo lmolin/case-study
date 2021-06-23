@@ -18,7 +18,7 @@ public class Yarn {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    Integer yId;
+    Long yId;
 
     @Column(name= "name")
     String yName;
@@ -28,4 +28,9 @@ public class Yarn {
 
     @Column(name="weight")
     Integer yWeight;
+
+    @Override
+    public String toString() {
+        return yName + " " + yColor + " " + yWeight;
+    }
 }

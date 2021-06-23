@@ -8,6 +8,7 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="project")
@@ -25,8 +26,11 @@ public class Project {
     @Column(name="name")
     String pName;
 
-    @Column(name="yarn")
-    String pYarn;
+    @ManyToMany
+    @JoinTable(name= "projectyarn",
+            joinColumns = @JoinColumn(name = "pId"),
+            inverseJoinColumns = @JoinColumn(name = "yId"))
+    List<Yarn> pYarn;
 
     @Column(name="description")
     String pDesc;

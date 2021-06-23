@@ -1,5 +1,6 @@
 package com.example.CaseStudy.models;
 
+import com.sun.istack.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,8 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer uId;
+    Long uId;
+
 
     @Column(name="username", length=16)
     @NotNull
@@ -28,5 +30,6 @@ public class User {
     @Column(name="password")
     @NotNull
     @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$", message = "Password must have at least 8 characters,\n1 uppercase letter, 1 lowercase letter, and 1 number")
+
     String password;
 }

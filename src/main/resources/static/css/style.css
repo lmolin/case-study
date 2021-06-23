@@ -3,7 +3,7 @@ body {
   margin: 0px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: sienna;
-  background-image: url("static/images/soft-3524894_1920.jpg");
+  background-image: url("src/main/resources/static/img/soft-3524894_1920.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }

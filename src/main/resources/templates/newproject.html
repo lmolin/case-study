@@ -26,21 +26,17 @@
                 th:field="*{pName}"
               />
             </div>
-
             <div class="form-group">
               <label for="yarn-select">yarn name</label>
-              <select name="yarnList" id="yarn-select" class="form-control" th:field="*{pYarn}">
-                <option value="Bernat Blanket steel blue 9">Bernat Blanket steel blue 9</option>
-                <option value="Lion Brand Pound of Love white 4">Lion Brand Pound of Love white 4</option>
-                <option value="Big Twist Value coral 3">Big Twist Value coral 3</option>
-                <option value="Red Heart Scrubby bubblegum 4">Red Heart Scrubby bubblegum 4</option>
+              <select class="form-select form-control" th:field="*{pYarn}" id="yarn-select">
+                <option th:each="i: ${yarnList}" th:value="${i.yId}" th:text="${i.yName}">My Yarn</option>
               </select>
             </div>
             <div class="form-group">
             <label for="desc-textarea">Description</label>
             <textarea class="form-control" id="desc-textarea" th:field="*{pDesc}"></textarea>
             </div>
-            <input type="submit" value="submit" />
+            <input type="submit" value="create" class="btn"/>
           </form>
         </section>
       </div>

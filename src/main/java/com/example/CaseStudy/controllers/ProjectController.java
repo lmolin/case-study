@@ -1,7 +1,9 @@
 package com.example.CaseStudy.controllers;
 
 import com.example.CaseStudy.models.Project;
+import com.example.CaseStudy.models.Yarn;
 import com.example.CaseStudy.services.ProjectService;
+import com.example.CaseStudy.services.YarnService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,9 @@ public class ProjectController {
     @Autowired
     ProjectService ps;
 
+    @Autowired
+    YarnService ys;
+
     @ModelAttribute("project")
     public Project initProject(){
         return new Project();
@@ -25,17 +30,27 @@ public class ProjectController {
 
     //go to new project
     @GetMapping("/projects/new")
-    public String newProject() {return "newproject";}
+    public String newProject(Model model) {
+
+        List<Yarn> yarnList = ys.getAllYarn();
+        model.addAttribute("yarnList", yarnList);
+
+        return "newproject";
+    }
 
     @PostMapping("/projects/save")
-    public String saveProject(@ModelAttribute("project") Project project, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            log.warning("Invalid input");
-            return "newproject";
-        }
+    public String saveProject(@RequestParam("pName") String name,
+                              @RequestParam("pYarn") List<Yarn> yarn,
+                              @RequestParam("pDesc") String pDesc,
+                              Model model) {
 
-        model.addAttribute("project", project);
-        ps.saveProject(project);
+        Project p = new Project();
+        p.setPName(name);
+        p.setPYarn(yarn);
+        p.setPDesc(pDesc);
+
+        ps.saveProject(p);
+
         return "redirect:../projects";
     }
 
@@ -75,17 +90,29 @@ public class ProjectController {
     @GetMapping("projects/{id}/edit")
     public String editPage(@PathVariable("id") Long id, Model model) {
 
-        Project p = ps.getProjectByPId(id);
+        List<Yarn> yarnList = ys.getAllYarn();
+        model.addAttribute("yarnList", yarnList);
 
+        Project p = ps.getProjectByPId(id);
         model.addAttribute("project", p);
 
         return "editProject";
     }
 
     @PostMapping("projects/update")
-    public String editProject(@ModelAttribute("project") Project project, BindingResult result, Model model) {
+    public String editProject(@RequestParam("pName") String name,
+                              @RequestParam("pYarn") List<Yarn> yarn,
+                              @RequestParam("pDesc") String pDesc,
+                              @RequestParam("pId") Long pId,
+                              Model model) {
 
-        ps.saveProject(project);
+        Project p = ps.getProjectByPId(pId);
+
+        p.setPName(name);
+        p.setPYarn(yarn);
+        p.setPDesc(pDesc);
+
+        ps.saveProject(p);
 
         return "redirect:../projects";
     }

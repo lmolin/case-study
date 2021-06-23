@@ -2,6 +2,8 @@ package com.example.CaseStudy.services;
 
 import com.example.CaseStudy.dao.IUserRepo;
 import com.example.CaseStudy.models.User;
+
+import com.example.CaseStudy.security.AppSecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,8 @@ public class UserService {
     IUserRepo repo;
 
     public void saveUser(User u) {
+
+        u.setPassword(AppSecurityConfig.getPasswordEncoder().encode(u.getPassword()));
         repo.save(u);
     }
 
